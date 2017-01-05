@@ -1,0 +1,29 @@
+{
+  "name": "js-grid-search",
+  "version": "1.0.0",
+  "description": "Simple mechanism for performing grid-search in node.js - parameter tuning for machine learning algorithms.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bergloman/JsGridSearch.git"
+  },
+  "keywords": [
+    "node",
+    "grid",
+    "search",
+    "parameter",
+    "tuning"
+  ],
+  "author": "Viktor Jovanoski",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/bergloman/JsGridSearch/issues"
+  },
+  "homepage": "https://github.com/bergloman/JsGridSearch#readme",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}
