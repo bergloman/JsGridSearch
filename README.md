@@ -10,7 +10,7 @@ This class creates simple plaforms for performing parameter tuning using [grid-s
 
 ### Run different parameters combinations
 
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~javascript
 let options = {
     params: {
         a: [1, 2],
@@ -18,7 +18,10 @@ let options = {
         c: [0, 100]
     },
     run_callback: (comb) => {
-        // here one would run his algorithm and collect the result
+        // comb parameter contains one of the parameter combinations
+
+        // here one would run his algorithm (using comb values)
+        // and collect the result
 
         // return the result - shape and content don't matter
         return { some_metric: Math.random() };
@@ -55,7 +58,7 @@ Result would look something like this:
 | b=tf,c=100      | 0.672   | 0.663
 ~~~~~~~~~~~~~~~~~~~~
 
-This ie easily compy-paste-able into markdown:
+This ie easily copy-paste-able into `markdown`:
 
 |                 | a=1     | a=2
 |-----------------|---------|---------
