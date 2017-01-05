@@ -5,9 +5,9 @@ parameter tuning for machine learning algorithms.
 
 ## Basic idea
 
-This class creates simple platform for performing parameter
+Simple class that creates easy-to-use platform for performing parameter
 tuning using [grid-search](https://en.wikipedia.org/wiki/Hyperparameter_optimization)
-- an exhaustive search over parameter space.
+(an exhaustive search over parameter space).
 
 When results are collected, it can output heat-map of the custom
 result evaluation to console or plain string.
@@ -19,12 +19,13 @@ result evaluation to console or plain string.
 ~~~~~~~~~~~~~~~javascript
 let options = {
     params: {
-        a: [1, 2],
-        b: ["none", "tf"],
-        c: [0, 100]
+        a: [1, 2], // all possible values for parameter a
+        b: ["none", "tf"], // all possible values for parameter b
+        c: [0, 100] // all possible values for parameter c
     },
     run_callback: (comb) => {
         // comb parameter contains one of the parameter combinations
+        // e.g. { a: 2, b: "tf", c: 0 }
 
         // here one would run his algorithm (using comb values)
         // and collect the result
