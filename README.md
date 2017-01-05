@@ -1,10 +1,16 @@
 # JsGridSearch
 
-Simple mechanism for performing grid-search in node.js - parameter tuning for machine learning algorithms.
+Simple mechanism for performing grid-search in `node.js` -
+parameter tuning for machine learning algorithms.
 
 ## Basic idea
 
-This class creates simple plaforms for performing parameter tuning using [grid-search](https://en.wikipedia.org/wiki/Hyperparameter_optimization) - an exhaustive search over parameter space.
+This class creates simple platform for performing parameter
+tuning using [grid-search](https://en.wikipedia.org/wiki/Hyperparameter_optimization)
+- an exhaustive search over parameter space.
+
+When results are collected, it can output heat-map of the custom
+result evaluation to console or plain string.
 
 ## Basic usage
 
@@ -24,7 +30,10 @@ let options = {
         // and collect the result
 
         // return the result - shape and content don't matter
-        return { some_metric: Math.random() };
+        return { 
+            some_metric: Math.random(),
+            some_other_metric: Math.random()
+        };
     }
 };
 let grid_search = new gs.GridSearch(options);
@@ -47,7 +56,7 @@ grid_search.displayTableOfResults(
 );
 ~~~~~~~~~~~~~~~~~~~
 
-Result would look something like this:
+The result would look something like this:
 
 ~~~~~~~~~~~~~~~~~~~~
 |                 | a=1     | a=2
@@ -58,7 +67,7 @@ Result would look something like this:
 | b=tf,c=100      | 0.672   | 0.663
 ~~~~~~~~~~~~~~~~~~~~
 
-This ie easily copy-paste-able into `markdown`:
+This is easily copy-paste-able into `markdown`:
 
 |                 | a=1     | a=2
 |-----------------|---------|---------
