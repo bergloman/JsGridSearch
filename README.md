@@ -1,5 +1,8 @@
 # JsGridSearch
 
+[![NPM Version][npm-image]][npm-url]
+[![Linux Build][travis-linux-image]][travis-linux-url]
+
 Simple mechanism for performing grid-search in node.js - parameter tuning for machine learning algorithms.
 
 ## Basic idea
