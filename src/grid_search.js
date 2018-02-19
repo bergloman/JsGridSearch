@@ -1,7 +1,7 @@
 "use strict";
 
 const fs = require("fs");
-const colors = require("colors");
+const colors = require("colors/safe");
 
 /** This class performs grid search - an exhaustive search through all parameter combinations.
  * It can then call custom result evaluation and display heat-map in console.
@@ -188,10 +188,10 @@ class GridSearch {
     /** Outputs numeric values while producing mathing color for the value */
     _outputValue(val, width) {
         let s = this._padToWidth("" + val, width);
-        if (this._shades[1] < val) return s.magenta;
-        if (this._shades[2] < val) return s.red;
-        if (this._shades[3] < val) return s.yellow;
-        if (this._shades[4] < val) return s.white;
+        if (this._shades[1] < val) return colors.magenta(s);
+        if (this._shades[2] < val) return colors.red(s);
+        if (this._shades[3] < val) return colors.yellow(s);
+        if (this._shades[4] < val) return colors.white(s);
         return s.grey;
     }
 
