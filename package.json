@@ -1,6 +1,6 @@
 {
   "name": "js-grid-search",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Simple mechanism for performing grid-search in node.js - parameter tuning for machine learning algorithms.",
   "main": "src/grid_search.js",
   "scripts": {
