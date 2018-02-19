@@ -225,7 +225,7 @@ class GridSearch {
         row += "| " + this._padToWidth("", first_col_width);
         row2 += "|-" + this._padToWidth("", first_col_width, "-");
         for (let i = 0; i < col_titles.length; i++) {
-            row += "| " + this._padToWidth(col_titles[i], col_widths[i]).cyan;
+            row += "| " + colors.cyan(this._padToWidth(col_titles[i], col_widths[i]));
             row2 += "|-" + this._padToWidth("", col_widths[i], "-");
         }
         console.log(row);
@@ -233,7 +233,7 @@ class GridSearch {
 
         for (let j = 0; j < row_titles.length; j++) {
             row = "| ";
-            row += this._padToWidth(row_titles[j], first_col_width).cyan;
+            row += colors.cyan(this._padToWidth(row_titles[j], first_col_width));
             for (let i = 0; i < col_titles.length; i++) {
                 row += "| " + this._outputValue(tab.results[j][i], col_widths[i]);
             }
