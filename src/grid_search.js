@@ -192,7 +192,7 @@ class GridSearch {
         if (this._shades[2] < val) return colors.red(s);
         if (this._shades[3] < val) return colors.yellow(s);
         if (this._shades[4] < val) return colors.white(s);
-        return s.grey;
+        return colors.grey(s);
     }
 
     /** Display table in friendly way */
