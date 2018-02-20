@@ -77,7 +77,9 @@ class GridSearch {
     _prepare(params_orig) {
         let pars = [];
         for (let par in params_orig) {
-            pars.push({ name: par, values: params_orig[par] });
+            if (params_orig.hasOwnProperty(par)) {
+                pars.push({ name: par, values: params_orig[par] });
+            }
         }
 
         this._combinations = [{}];
@@ -125,7 +127,9 @@ class GridSearch {
         for (let i = 0; i < filter_arr.length; i++) {
             let match = true;
             for (let p in filter_arr[i]) {
-                match = match && obj[p] == filter_arr[i][p];
+                if (filter_arr[i].hasOwnProperty(p)) {
+                    match = match && obj[p] == filter_arr[i][p];
+                }
             }
             if (match) {
                 return i;
@@ -192,7 +196,9 @@ class GridSearch {
     _createTitle(obj) {
         let res = "";
         for (let p in obj) {
-            res += `${p}=${obj[p]},`;
+            if (obj.hasOwnProperty(p)) {
+                res += `${p}=${obj[p]},`;
+            }
         }
         return res.substr(0, res.length - 1);
     }
@@ -200,7 +206,7 @@ class GridSearch {
     /** Utility function for padding given string to specified length */
     _padToWidth(s, width, c) {
         c = c || " ";
-        while (s.length < width) s += c;
+        while (s.length < width) { s += c; }
         return s;
     }
 
@@ -216,10 +222,10 @@ class GridSearch {
     /** Outputs numeric values while producing mathing color for the value */
     _outputValue(val, width) {
         let s = this._padToWidth("" + val, width);
-        if (this._shades[1] < val) return colors.magenta(s);
-        if (this._shades[2] < val) return colors.red(s);
-        if (this._shades[3] < val) return colors.yellow(s);
-        if (this._shades[4] < val) return colors.white(s);
+        if (this._shades[1] < val) { return colors.magenta(s); }
+        if (this._shades[2] < val) { return colors.red(s); }
+        if (this._shades[3] < val) { return colors.yellow(s); }
+        if (this._shades[4] < val) { return colors.white(s); }
         return colors.grey(s);
     }
 
