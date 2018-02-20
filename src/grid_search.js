@@ -29,7 +29,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 "use strict";
 
 const fs = require("fs");
-const colors = require("colors/safe");
 
 /** This class performs grid search - an exhaustive search through all parameter combinations.
  * It can then call custom result evaluation and display heat-map in console.
@@ -222,11 +221,7 @@ class GridSearch {
     /** Outputs numeric values while producing mathing color for the value */
     _outputValue(val, width) {
         let s = this._padToWidth("" + val, width);
-        if (this._shades[1] < val) { return colors.magenta(s); }
-        if (this._shades[2] < val) { return colors.red(s); }
-        if (this._shades[3] < val) { return colors.yellow(s); }
-        if (this._shades[4] < val) { return colors.white(s); }
-        return colors.grey(s);
+        return s;
     }
 
     /** Display table in friendly way */
@@ -259,7 +254,7 @@ class GridSearch {
         row += "| " + this._padToWidth("", first_col_width);
         row2 += "|-" + this._padToWidth("", first_col_width, "-");
         for (let i = 0; i < col_titles.length; i++) {
-            row += "| " + colors.cyan(this._padToWidth(col_titles[i], col_widths[i]));
+            row += "| " + this._padToWidth(col_titles[i], col_widths[i]);
             row2 += "|-" + this._padToWidth("", col_widths[i], "-");
         }
         console.log(row);
@@ -267,7 +262,7 @@ class GridSearch {
 
         for (let j = 0; j < row_titles.length; j++) {
             row = "| ";
-            row += colors.cyan(this._padToWidth(row_titles[j], first_col_width));
+            row += this._padToWidth(row_titles[j], first_col_width);
             for (let i = 0; i < col_titles.length; i++) {
                 row += "| " + this._outputValue(tab.results[j][i], col_widths[i]);
             }
