@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/bergloman/JsGridSearch#readme",
   "dependencies": {
-    "colors": "^1.1.2"
+    "colors": "1.4.0"
   }
 }
